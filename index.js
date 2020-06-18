@@ -6,13 +6,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 var Pool = require('pg').Pool;
-var pool = new Pool({
-    user: "wnovfwvgimkslp",
-    host: "ec2-18-214-211-47.compute-1.amazonaws.com",
-    database: "d5tep7u9lv3lf0",
-    password: "987cf38980938386140c1447f981848345d1e0dfc87e9b42049e047d5a902782",
-    port: 5432,
-})
+var pool = new Pool({})
 pool.query("CREATE DATABASE todos");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
