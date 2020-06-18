@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </head>
+                <body class="text-center bg-light text-dark">
+                    <nav class="bg-dark text-danger">
+                        <h1>To Do List</h1>
+                    </nav>
+                    <form action="/post" method="POST" class="form bg-light text-dark mt-4 d-inline-flex p-2">
+                    <input class="text-center" type="text" name="todo" placeholder="To Do"></input>
+                    <input type="submit"></input>
+                    </form>
+                    <br>
+                    <div class="bg-dark d-inline-flex p-2 text-danger text-center">
+                    <hr class="bg-danger">
+                    <hr class="bg-light">
+                    <ul class="bg-dark text-center text-light list-unstyled">
+                        <% todos.forEach(function(todo) { %>
+                            <li><%= todo.todo %></li>
+                            <form method="POST" action="/todos/delete/<%= todo.id %>?_method=DELETE"><input class="btn btn-danger align-left" value="Delete" type="submit"></input></form>
+                        <% }) %>
+                    </ul>
+                    <hr class="bg-danger">
+                    </div>
+                </body>
+</html>
